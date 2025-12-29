@@ -1,83 +1,192 @@
-# FitSynth - AI-Assisted Fitness Planning
+🏃‍♂️ FitSynth
 
-A fitness application that generates personalized workout plans and diet recommendations using AI.
+AI-Assisted Exercise Routine Personalization Platform
 
-## Features
 
-- Personalized fitness plan generation based on user profile
-- Diet recommendations with macro breakdown
-- Progress tracking and visualization
-- LLM-powered explanations using Mistral API
-- Workout library and scheduling
+---
 
-## Setup
+🧠 Overview
 
-### Backend Setup
-
-1. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-2. Set up Mistral API key:
-```bash
-export MISTRAL_API_KEY=your_mistral_api_key_here
-```
-
-Or create a `.env` file (copy from `.env.example`) and load it:
-```bash
-export $(cat .env | xargs)
-```
-
-3. Run the backend server:
-```bash
-cd backend
-python app.py
-```
-
-The server will start on `http://localhost:5000`
-
-### Frontend
-
-The frontend is served automatically by the Flask backend. Just open `http://localhost:5000` in your browser.
-
-## API Endpoints
-
-- `POST /api/generate-plan` - Generate a fitness plan
-  - Request body: User profile data (age, height, weight, goal, etc.)
-  - Response: Complete fitness plan with exercises, schedule, diet, and explanation
-
-- `GET /api/plans` - Get all saved plans
-
-- `GET /api/health` - Health check endpoint
-
-## Project Structure
-
-```
-.
-├── backend/
-│   ├── app.py          # Flask backend server
-│   └── data/           # JSON storage for plans
-├── frontend/
-│   ├── index.html      # Main page
-│   ├── plan.html       # Plan view
-│   ├── progress.html   # Progress tracking
-│   ├── workouts.html   # Workout library
-│   ├── results.html    # Results page
-│   └── assets/         # JavaScript and CSS files
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
-```
-
-## Deployment
+FitSynth is a web-based platform that generates personalized, safe, and goal-oriented exercise routines using intelligent rule-based logic.
+It adapts workout plans based on a user’s body profile, fitness level, goals, time availability, and fatigue, helping users stay motivated and consistent while reducing injury risk.
 
 https://fitness-phi-fawn.vercel.app/
 
-## Notes
 
-- The backend uses simple JSON file storage. For production, consider upgrading to a database.
-- Mistral API integration is optional - if no API key is provided, the system falls back to rule-based explanations.
-- Plans are saved to `backend/data/plans.json`
-- Production mode: Set `FLASK_DEBUG=false` (default) for production deployments
-- Uses Gunicorn WSGI server for production (configured in `Procfile` and `gunicorn_config.py`)
+---
 
+🤖 AI Fitness Assistant
+
+FitSynth includes an AI-powered fitness assistant integrated using the Mistral API.
+The built-in chatbox allows users to:
+
+Ask fitness and health-related questions
+
+Understand why specific exercises are recommended
+
+Get motivation, tips, and guidance
+
+Interact with the system like a virtual personal trainer
+
+
+This makes the platform more engaging, supportive, and easy to use.
+
+
+---
+
+🚀 Features
+
+Personalized workout generation
+
+AI-assisted rule-based recommendation engine
+
+Explainable exercise suggestions
+
+Fatigue-aware scheduling
+
+Progress tracking and workout streaks
+
+Real-time AI fitness chat assistant
+
+Clean and beginner-friendly UI
+
+Scalable architecture for wellness programs
+
+
+
+---
+
+🧩 Tech Stack
+
+Frontend
+
+HTML, CSS, JavaScript
+
+React
+
+
+Backend
+
+Node.js
+
+Express.js
+
+
+Database
+
+MongoDB
+
+
+AI Integration
+
+Mistral API (server-side secure integration)
+
+
+
+---
+
+🏗 System Architecture
+
+User
+  ↓
+Web Interface (Frontend)
+  ↓
+API Server (Express)
+  ↓
+Personalization & Scoring Engine
+  ↓
+Workout Generator
+  ↓
+Database (MongoDB)
+  ↓
+Progress Dashboard
+  ↓
+AI Fitness Assistant (Mistral)
+  ↓
+User
+
+
+---
+
+🧪 How It Works
+
+1. User enters fitness details (age, weight, goal, fitness level, etc.)
+
+
+2. The system applies intelligent fitness rules
+
+
+3. A personalized workout routine is generated
+
+
+4. The user receives transparent explanations for recommendations
+
+
+5. Progress and workout history are tracked on the dashboard
+
+
+6. The user interacts with the AI chat assistant for guidance and motivation
+
+
+
+
+---
+
+🧑‍🤝‍🧑 Team
+
+Team Trojan
+
+Ammoditaa Kandpal — Backend Developer
+(Express APIs, MongoDB schemas, exercise logic)
+
+Ashika Maji — Frontend Developer
+(Forms, workout cards, progress UI)
+
+Ashly Jacob — Logic & UX Lead
+(Personalization rules, scoring engine, explanations, UI/UX)
+
+
+
+---
+
+🌍 Real-World Impact
+
+Reduces injury risk through safe, personalized routines
+
+Increases motivation and long-term workout consistency
+
+Makes quality fitness guidance accessible
+
+Supports large-scale wellness programs for schools and organizations
+
+
+
+---
+
+🧪 Project Status
+
+This project is currently at the prototype stage, with a fully designed UI/UX and core system architecture ready for full implementation.
+
+
+---
+
+📌 Future Enhancements
+
+Nutrition and diet planning
+
+Mobile app version
+
+Machine-learning optimization for recommendations
+
+Wearable device integration
+
+
+
+---
+
+📄 License
+
+This project is developed as part of a hackathon and is intended for educational and demonstration purposes.
+
+
+---
