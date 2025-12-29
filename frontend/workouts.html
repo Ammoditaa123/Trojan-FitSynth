@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Workouts — FitSynth</title>
+
+    <!-- Tailwind CDN (for prototype) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-semibold">FitSynth</h1>
+            <nav class="text-sm text-gray-600">
+                <a class="px-3" href="index.html#form">Profile</a>
+                <a class="px-3" href="progress.html">Progress</a>
+                <a class="px-3" href="plan.html">Plan</a>
+                <a class="px-3" href="workouts.html">Workouts</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-semibold">Workout Library</h2>
+            <p class="text-sm text-gray-600">Browse ready-made workouts and add them to your plan.</p>
+        </div>
+
+        <div class="mb-4 flex gap-3 items-center">
+            <input id="workoutSearch" placeholder="Search workouts or tags" class="flex-1 rounded border px-3 py-2" />
+            <select id="difficultyFilter" class="rounded border px-2 py-2">
+                <option value="">All difficulties</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+            <button id="clearFilters" class="btn bg-gray-100 px-3 py-2 rounded text-sm">Clear</button>
+        </div>
+
+        <div id="workoutGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 staggered"></div>
+
+        <!-- modal -->
+        <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4">
+            <div class="bg-white rounded-lg shadow-lg max-w-2xl w-full p-6">
+                <button id="modalClose" class="btn float-right text-gray-500 hover:text-gray-700">Close</button>
+                <div id="modalContent" class="mt-4"></div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-xs text-gray-500">Tip: Click "Use in plan" to store the workout and return to the Profile
+            page.</div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto p-4 text-xs text-gray-500">
+        Prototype — Tailwind + vanilla JS
+    </footer>
+
+    <script src="assets/workouts.js" type="module"></script>
+    <script type="module" src="assets/chat.js"></script>
+</body>
+
+</html>

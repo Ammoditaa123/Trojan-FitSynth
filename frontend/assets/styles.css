@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --bg: #f7fbff;
+    --surface: #ffffff;
+    --muted: #6b7280;
+    --primary: #4f46e5;
+    /* indigo-600 */
+    --primary-600: #4338ca;
+    --accent: #06b6d4;
+    /* cyan-500 */
+    --radius: 12px;
+    --card-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: var(--bg);
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+    background: linear-gradient(-396deg, rgba(108, 240, 247, 0.8), rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(6px);
+}
+
+header .logo {
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.02em
+}
+
+nav a {
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 8px;
+    position: relative;
+    display: inline-block;
+    transition: color .18s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    height: 3px;
+    background: var(--primary);
+    bottom: -6px;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .18s ease;
+}
+
+nav a:hover {
+    color: rgba(2, 24, 26, 0.8)
+}
+
+nav a:hover::after,
+nav a:focus::after {
+    transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    nav a::after,
+    nav a {
+        transition: none;
+    }
+}
+
+/* Cards */
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.03);
+    transition: transform .18s ease, box-shadow .18s ease
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08)
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .9rem;
+    border-radius: 10px;
+    padding: .5rem .8rem;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--primary-600));
+    color: white;
+    box-shadow: 0 6px 18px rgba(27, 23, 93, 0.18)
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    color: var(--primary-600)
+}
+
+.btn:active {
+    transform: translateY(1px)
+}
+
+/* Form elements */
+input[type=text],
+input[type=number],
+textarea,
+select {
+    border-radius: calc(var(--radius) - 4px);
+    padding: .55rem .7rem;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: #fff;
+    outline: none
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.08);
+    border-color: rgba(79, 70, 229, 0.14)
+}
+
+/* Profile page: unify border radius across all relevant elements */
+#form,
+#form .card,
+#form input,
+#form select,
+#form textarea,
+#form button,
+#form .btn,
+#form .btn-primary,
+#form .btn-ghost,
+#form .rounded,
+#form .rounded-md,
+#form .rounded-lg {
+    border-radius: var(--radius) !important;
+}
+
+/* Make form controls slightly inset compared to cards for a cohesive look */
+#form input,
+#form select,
+#form textarea {
+    border-radius: calc(var(--radius) - 4px) !important;
+}
+
+#form .btn,
+#form .btn-primary,
+#form .btn-ghost {
+    border-radius: calc(var(--radius) - 2px) !important;
+}
+
+/* Emphasize Goal and Special Notes on Profile */
+#form label[for="goal"],
+#form label[for="notes"] {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+#goal,
+#notes {
+    font-size: 1.04rem;
+    padding: 0.75rem 0.9rem;
+}
+
+#notes {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.35;
+}
+
+#goal {
+    padding-right: 2rem;
+}
+
+/* Extra spacing to make Goal and Notes stand out */
+#goal,
+#notes,
+#form label[for="goal"],
+#form label[for="notes"] {
+    margin-top: 0.6rem;
+    margin-bottom: 0.65rem;
+}
+
+/* Custom select (animated) */
+.custom-select-container {
+    position: relative;
+    overflow: visible;
+}
+
+.custom-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .55rem .7rem;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    background: #fff;
+    border-radius: calc(var(--radius) - 4px);
+    cursor: pointer;
+}
+
+.custom-select-trigger:focus {
+    outline: 3px solid rgba(79, 70, 229, 0.08);
+    outline-offset: 2px;
+}
+
+/* Panel: default absolute layout; JS will reposition to fixed coords when needed to avoid clipping */
+.custom-select-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    background: var(--surface);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+    overflow: hidden;
+    transform-origin: top center;
+    opacity: 0;
+    transform: translateY(-6px) scaleY(.98);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 9999;
+}
+
+.custom-select-panel.open {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    pointer-events: auto;
+}
+
+/* Allow full-width, fixed positioning on small screens */
+@media (max-width:640px) {
+    .custom-select-panel {
+        position: fixed !important;
+        left: 12px !important;
+        right: 12px !important;
+        top: auto !important;
+        width: auto !important;
+    }
+}
+
+.custom-select-option {
+    padding: .55rem .7rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.03);
+    cursor: pointer
+}
+
+.custom-select-option:hover {
+    background: rgba(79, 70, 229, 0.04)
+}
+
+.custom-select-option[aria-selected="true"] {
+    background: rgba(79, 70, 229, 0.06);
+    font-weight: 600
+}
+
+/* small caret */
+.custom-select-trigger .caret {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    transform: rotate(-45deg);
+    display: inline-block;
+    margin-left: .5rem;
+    transition: transform .18s
+}
+
+.custom-select-trigger.open .caret {
+    transform: rotate(135deg);
+    border-color: var(--primary-600)
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .custom-select-panel,
+    .custom-select-trigger .caret {
+        transition: none
+    }
+}
+
+/* Utilities */
+.small-muted {
+    color: var(--muted);
+    font-size: .9rem
+}
+
+.prose p {
+    color: var(--muted)
+}
+
+/* Workout grid specifics */
+.workout-image {
+    height: 9rem;
+    overflow: hidden;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius)
+}
+
+.workout-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+}
+
+/* Mini pie corrections */
+.meal-mini {
+    transition: opacity .18s ease, transform .18s ease
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+    .w-44 {
+        width: 10.5rem !important;
+        height: 10.5rem !important
+    }
+
+    header .max-w-6xl {
+        padding-left: 1rem;
+        padding-right: 1rem
+    }
+}
+
+/* Helper */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+/* Accessibility */
+button:focus {
+    outline: 3px solid rgba(79, 70, 229, 0.14);
+    outline-offset: 2px
+}
+
+/* Chat widget */
+#fitsynthChatRoot {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 9999;
+}
+
+.fs-chat-toggle {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.fs-chat-toggle i {
+    font-size: 1.5rem;
+}
+
+.fs-chat-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.4);
+}
+
+.fs-chat-panel {
+    position: fixed;
+    bottom: 5.2rem;
+    right: 1.25rem;
+    width: 22rem;
+    max-width: calc(100vw - 2.5rem);
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: bottom right;
+    transition: opacity .18s ease, transform .18s ease;
+}
+
+.fs-chat-panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px) scale(.96);
+}
+
+.fs-chat-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.fs-chat-header {
+    padding: .75rem .9rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .75rem;
+}
+
+.fs-chat-title {
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+.fs-chat-subtitle {
+    font-size: .78rem;
+    color: var(--muted);
+}
+
+.fs-chat-close {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-chat-messages {
+    padding: .75rem;
+    max-height: 16rem;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #f9fafb 0, #ffffff 18%);
+}
+
+.fs-chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    margin-bottom: .55rem;
+    font-size: .83rem;
+}
+
+.fs-chat-avatar {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 999px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #374151;
+    flex-shrink: 0;
+}
+
+.fs-chat-bubble {
+    padding: .5rem .7rem;
+    border-radius: .7rem;
+    background: #f3f4f6;
+    color: #111827;
+    max-width: 14.5rem;
+    white-space: pre-wrap;
+}
+
+.fs-chat-user .fs-chat-bubble {
+    background: #4f46e5;
+    color: #fff;
+}
+
+.fs-chat-user .fs-chat-avatar {
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.fs-chat-form {
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    padding: .55rem .6rem;
+    display: flex;
+    gap: .35rem;
+}
+
+.fs-chat-input {
+    flex: 1;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    padding: .4rem .7rem;
+    font-size: .82rem;
+}
+
+.fs-chat-send {
+    border-radius: 999px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    width: 2.1rem;
+    height: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.fs-chat-typing {
+    display: inline-flex;
+    gap: 3px;
+}
+
+.fs-chat-typing span {
+    width: 4px;
+    height: 4px;
+    border-radius: 999px;
+    background: #9ca3af;
+    animation: fs-bounce 1s infinite ease-in-out;
+}
+
+.fs-chat-typing span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.fs-chat-typing span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes fs-bounce {
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: .7;
+    }
+
+    40% {
+        transform: translateY(-3px);
+        opacity: 1;
+    }
+}
+
+@media (max-width:640px) {
+    .fs-chat-panel {
+        right: .75rem;
+        left: .75rem;
+        width: auto;
+        max-width: none;
+    }
+}

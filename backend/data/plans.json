@@ -1,0 +1,233 @@
+[
+  {
+    "inputs": {
+      "name": "c",
+      "age": 30,
+      "sex": "Female",
+      "activity": "moderate",
+      "height": 170,
+      "weight": 70,
+      "timeOfDay": "evening",
+      "daysPerWeek": 4,
+      "sessionMinutes": 45,
+      "fatigue": 2,
+      "goal": "general",
+      "notes": ""
+    },
+    "planObj": {
+      "meta": {
+        "metrics": {
+          "bmi": 24.2,
+          "fitnessScore": 67
+        },
+        "intensity": 0.79,
+        "generatedAt": "2025-12-29T16:39:21.527564"
+      },
+      "plan": {
+        "warmup": [
+          {
+            "name": "Dynamic Warm-up",
+            "duration": 5,
+            "notes": "Joint mobility and light cardio"
+          }
+        ],
+        "mainParts": [
+          {
+            "section": "Strength",
+            "items": [
+              {
+                "id": "s1",
+                "name": "Bodyweight Squats",
+                "type": "strength",
+                "difficulty": 1,
+                "target": "legs",
+                "sets": 2,
+                "reps": 12
+              },
+              {
+                "id": "s2",
+                "name": "Push-ups (knees/full)",
+                "type": "strength",
+                "difficulty": 2,
+                "target": "upper",
+                "sets": 2,
+                "reps": 12
+              },
+              {
+                "id": "s7",
+                "name": "Lunges",
+                "type": "strength",
+                "difficulty": 2,
+                "target": "legs",
+                "sets": 2,
+                "reps": 12
+              }
+            ],
+            "minutes": 29
+          },
+          {
+            "section": "Cardio",
+            "items": [
+              {
+                "id": "s3",
+                "name": "Walking / brisk walk",
+                "type": "cardio",
+                "difficulty": 1,
+                "target": "cardio",
+                "durationMin": 8
+              },
+              {
+                "id": "s4",
+                "name": "Stationary Bike",
+                "type": "cardio",
+                "difficulty": 2,
+                "target": "cardio",
+                "durationMin": 8
+              }
+            ],
+            "minutes": 16
+          }
+        ],
+        "cooldown": [
+          {
+            "name": "Cooldown & Stretching",
+            "duration": 5,
+            "notes": "Light stretching, breathing"
+          }
+        ]
+      },
+      "schedule": {
+        "schedule": [
+          {
+            "day": "Mon",
+            "time": "evening",
+            "load": 36,
+            "notes": "Higher focus"
+          },
+          {
+            "day": "Tue",
+            "time": "evening",
+            "load": 36,
+            "notes": "Standard"
+          },
+          {
+            "day": "Wed",
+            "time": "evening",
+            "load": 36,
+            "notes": "Standard"
+          },
+          {
+            "day": "Thu",
+            "time": "evening",
+            "load": 36,
+            "notes": "Lower intensity"
+          }
+        ],
+        "adjustedDays": 4,
+        "weeklyLoad": 144,
+        "adjustAdvice": null
+      },
+      "explanation": "We computed BMI=24.2 and fitness score=67.\nIntensity multiplier chosen: 0.79 (lower when fatigue is high, higher for muscle gain).",
+      "diet": {
+        "calories": 2205,
+        "macros": {
+          "protein_g": 126,
+          "fat_g": 56,
+          "carbs_g": 299,
+          "proteinPct": 22.857142857142858,
+          "fatPct": 22.857142857142858,
+          "carbsPct": 54.285714285714285
+        },
+        "meals": [
+          {
+            "name": "Breakfast",
+            "kcal": 551,
+            "protein": 32,
+            "fat": 14,
+            "carbs": 75,
+            "example": "Oats, milk, banana, whey \u2014 approx 32g protein"
+          },
+          {
+            "name": "Lunch",
+            "kcal": 772,
+            "protein": 44,
+            "fat": 20,
+            "carbs": 105,
+            "example": "Chicken, rice, vegetables \u2014 approx 44g protein"
+          },
+          {
+            "name": "Dinner",
+            "kcal": 662,
+            "protein": 38,
+            "fat": 17,
+            "carbs": 90,
+            "example": "Salmon, sweet potato, salad \u2014 approx 38g protein"
+          },
+          {
+            "name": "Snack",
+            "kcal": 220,
+            "protein": 13,
+            "fat": 6,
+            "carbs": 30,
+            "example": "Greek yogurt & nuts \u2014 approx 13g protein"
+          }
+        ]
+      },
+      "charts": {
+        "bmiHistory": [
+          {
+            "week": "W1",
+            "bmi": 24.0
+          },
+          {
+            "week": "W2",
+            "bmi": 23.9
+          },
+          {
+            "week": "W3",
+            "bmi": 24.1
+          },
+          {
+            "week": "W4",
+            "bmi": 23.8
+          },
+          {
+            "week": "W5",
+            "bmi": 23.8
+          },
+          {
+            "week": "W6",
+            "bmi": 23.4
+          },
+          {
+            "week": "W7",
+            "bmi": 23.5
+          },
+          {
+            "week": "W8",
+            "bmi": 23.1
+          },
+          {
+            "week": "W9",
+            "bmi": 23.1
+          }
+        ],
+        "weeklyLoad": [
+          37,
+          38,
+          39,
+          32,
+          0,
+          0,
+          0
+        ],
+        "dietPie": [
+          54,
+          23,
+          23
+        ]
+      }
+    },
+    "createdAt": "2025-12-29T16:39:21.527593"
+  }
+]

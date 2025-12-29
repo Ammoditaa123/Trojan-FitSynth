@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FitSynth — AI-assisted Personalized Routines</title>
+
+    <!-- Tailwind CDN (for prototype) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/styles.css">
+
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Boxicons (icons) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-semibold">FitSynth</h1>
+            <nav class="text-sm text-gray-600">
+                <a href="./index.html#form">Profile</a>
+                <a href="./progress.html">Progress</a>
+                <a href="./plan.html">Plan</a>
+                <a href="./workouts.html">Workouts</a>
+                <a href="./results.html">Results</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+
+        <!-- Profile form only -->
+        <section id="form" class="max-w-2xl mx-auto card">
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-1">Participant Info</h2>
+                <p class="small-muted mb-0">Tell us about yourself to generate a tailored routine.</p>
+            </div>
+
+            <form id="profileForm" class="space-y-4">
+                <div>
+                    <label class="block small-muted font-medium">Full name</label>
+                    <input id="name" class="mt-1 block w-full" placeholder="Jane Doe" />
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block small-muted font-medium">Age</label>
+                        <input id="age" type="number" min="10" max="100" class="mt-1 block w-full" value="30" />
+                    </div>
+                    <div>
+                        <label class="block small-muted font-medium">Sex</label>
+                        <select id="sex" class="mt-1 block w-full">
+                            <option>Female</option>
+                            <option>Male</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block small-muted font-medium">Activity</label>
+                        <select id="activity" class="mt-1 block w-full">
+                            <option value="sedentary">Sedentary</option>
+                            <option value="light">Light</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="active">Active</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block small-muted font-medium">Height (cm)</label>
+                        <input id="height" type="number" class="mt-1 block w-full" value="170" />
+                    </div>
+                    <div>
+                        <label class="block small-muted font-medium">Weight (kg)</label>
+                        <input id="weight" type="number" class="mt-1 block w-full" value="70" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block small-muted font-medium">Preferred session time</label>
+                    <select id="timeOfDay" class="mt-1 block w-full">
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening" selected>Evening</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block small-muted font-medium">Days available / week</label>
+                        <input id="daysPerWeek" type="number" min="1" max="7" class="mt-1 block w-full" value="4" />
+                    </div>
+                    <div>
+                        <label class="block small-muted font-medium">Avg session minutes</label>
+                        <input id="sessionMinutes" type="number" min="10" max="180" class="mt-1 block w-full"
+                            value="45" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block small-muted font-medium">Perceived fatigue (RPE 0-10)</label>
+                    <input id="fatigue" type="range" min="0" max="10" value="2" class="w-full"
+                        oninput="document.getElementById('fatigueVal').innerText = this.value" />
+                    <div class="text-xs text-gray-500">Current fatigue: <span id="fatigueVal">2</span></div>
+                </div>
+
+                <div>
+                    <label class="block small-muted font-medium">Goal</label>
+                    <select id="goal" class="mt-1 block w-full">
+                        <option value="general">General fitness</option>
+                        <option value="fat_loss">Fat loss</option>
+                        <option value="muscle_gain">Muscle gain</option>
+                        <option value="endurance">Endurance</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block small-muted font-medium">Special notes</label>
+                    <textarea id="notes" class="mt-1 block w-full" rows="3"
+                        placeholder="e.g., knee pain, pregnancy, prior injuries"></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-3">
+                    <button id="generateBtn" type="button" class="btn btn-primary w-full sm:w-auto"><i
+                            class="bx bxs-play mr-2 text-lg" aria-hidden="true"></i>Generate Routine</button>
+                    <button id="resetBtn" type="button"
+                        class="btn btn-ghost text-red-600 w-full sm:w-auto">Reset</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="max-w-6xl mx-auto p-4 text-xs text-gray-500">
+        Prototype — Tailwind + vanilla JS. Backed by a Flask + Mistral API backend.
+    </footer>
+
+    <!-- App scripts -->
+    <script type="module" src="./assets/app.js"></script>
+    <script type="module" src="./assets/chat.js"></script>
+
+</body>
+
+</html>

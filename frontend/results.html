@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Results — FitSynth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <header class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-semibold">FitSynth</h1>
+            <nav class="text-sm text-gray-600">
+                <a class="px-3" href="index.html#form">Profile</a>
+                <a class="px-3" href="progress.html">Progress</a>
+                <a class="px-3" href="plan.html">Plan</a>
+                <a class="px-3" href="workouts.html">Workouts</a>
+                <a class="px-3" href="results.html">Results</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold">Latest Results</h2>
+            <p class="text-sm text-gray-600">Generated plan and summary metrics for your latest inputs.</p>
+            <div class="mt-3 flex gap-2">
+                <button id="saveResultBtn" class="btn btn-primary"><i class="bx bxs-save icon-bounce mr-2 text-lg"
+                        aria-hidden="true"></i>Save
+                    Result</button>
+                <button id="exportResultBtn" class="btn btn-ghost"><i class="bx bxs-download icon-bounce mr-2 text-lg"
+                        aria-hidden="true"></i>Export
+                    PDF</button>
+                <a href="plan.html" class="btn btn-ghost">Saved Plans</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <section id="graph" class="card subtle-float">
+                <h3 class="text-lg font-medium mb-3">Body & Load</h3>
+                <div class="space-y-4">
+                    <div>
+                        <canvas id="bmiChart" height="160"></canvas>
+                    </div>
+                    <div>
+                        <canvas id="weeklyLoadChart" height="160"></canvas>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-medium mb-1">Quick metrics</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>BMI: <span id="bmiVal">—</span></li>
+                            <li>Fitness Score: <span id="fitnessVal">—</span></li>
+                            <li>Suggested weekly sessions: <span id="suggestedSessions">—</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="plan" class="card subtle-float">
+                <h3 class="text-lg font-medium mb-3">AI Suggested Plan</h3>
+                <div id="explanation" class="prose text-sm text-gray-700 mb-4">No plan available. Generate one on the
+                    Profile page.</div>
+                <div id="planList" class="space-y-3 staggered"></div>
+
+                <div id="dietSection" class="mt-4">
+                    <h4 class="text-sm font-medium mb-2">AI-recommended Diet</h4>
+                    <div id="dietSummary" class="bg-white p-3 rounded shadow text-sm text-gray-700">No diet available.
+                        Generate a plan to see diet suggestions.</div>
+                    <div id="dietMeals" class="mt-3 grid grid-cols-1 gap-3 staggered"></div>
+                </div>
+
+                <div class="mt-4">
+                    <h4 class="text-sm font-medium mb-2">Schedule (Fatigue-aware)</h4>
+                    <ul id="scheduleList" class="list-disc pl-5 text-sm text-gray-700"></ul>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto p-4 text-xs text-gray-500">Prototype</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="assets/results.js"></script>
+    <script type="module" src="assets/chat.js"></script>
+</body>
+
+</html>
