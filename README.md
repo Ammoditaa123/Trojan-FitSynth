@@ -71,23 +71,7 @@ The frontend is served automatically by the Flask backend. Just open `http://loc
 
 ## Deployment
 
-The application is **production-ready** and can be deployed to various platforms:
-
-- **Heroku**: Uses `Procfile` for deployment
-- **Railway**: Auto-detects `Procfile`
-- **Render**: Configure build/start commands
-- **Docker**: Includes `Dockerfile` for containerized deployment
-- **AWS/GCP/Azure**: Use gunicorn with provided configuration
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
-
-### Quick Deploy (Heroku)
-
-```bash
-heroku create your-app-name
-heroku config:set MISTRAL_API_KEY=your_key_here
-git push heroku main
-```
+https://fitness-phi-fawn.vercel.app/
 
 ## Notes
 
